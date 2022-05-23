@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- bean就是一个java对象，由spring创建和管理 -->
+    <!-- 有参构造注入 -->
+    <bean id="hello" name="he llo" class="com.example.spring.ioc.Hello">
+        <constructor-arg name="name" value="spring"/>
+    </bean>
+    
+    <!-- set注入 -->
+    <bean id="address" class="com.example.spring.ioc.Address">
+        <property name="address" value="sichuan"/>
+    </bean>
+    <bean id="student" class="com.example.spring.ioc.Student">
+        <property name="name" value="yang"/>
+        <property name="address" ref="address"/>
+        <property name="books">
+            <array>
+                <value>数据结构</value>
+                <value>操作系统</value>
+                <value>计算机网络</value>
+            </array>
+        </property>
+        <property name="hobbys">
+            <list>
+                <value>piano</value>
+                <value>running</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="中国工商" value="156467865"/>
+                <entry key="中国银行" value="468765468"/>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>overwatch</value>
+                <value>lol</value>
+            </set>
+        </property>
+        <property name="wife"><null/></property>
+    </bean>
+
+    <!-- p命名注入 -->
+    <!--<bean name="user" class="com.example.spring.ioc.User" p:name="yang" p:age="20"/>-->
+
+    <!-- c命名注入 -->
+    <bean name="user" class="com.example.spring.ioc.User" c:name="huang" c:age="18"/>
+
+    <!--<alias name="hello" alias="hell"/>-->
+
+    <bean id="dog1" class="com.example.spring.ioc.Dog"/>
+    <bean id="dog2" class="com.example.spring.ioc.Dog"/>
+    <bean id="cat2" class="com.example.spring.ioc.Cat"/>
+    <bean id="cat" class="com.example.spring.ioc.Cat"/>
+
+    <!--<bean id="master" class="com.example.spring.ioc.Master">
+        <property name="dog" ref="dog"/>
+        <property name="cat" ref="cat"/>
+        <property name="str" value="yang"/>
+    </bean>-->
+
+    <!-- 自动装配 byName与byType -->
+    <!--<bean id="master" class="com.example.spring.ioc.Master" autowire="byType">
+        <property name="str" value="yang"/>
+    </bean>-->
+
+    <context:annotation-config/>
+
+    <!-- 注解自动装配 -->
+    <bean id="master" class="com.example.spring.ioc.Master"/>
+</beans>
