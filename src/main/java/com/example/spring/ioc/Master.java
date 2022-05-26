@@ -1,5 +1,7 @@
 package com.example.spring.ioc;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.annotation.Resource;
 
 /**
@@ -15,6 +17,7 @@ public class Master {
     @Resource(name = "dog1")
     private Dog dog;
 
+    @Value("123")
     private String str;
 
     public Cat getCat() {

@@ -1,10 +1,9 @@
 package com.example.spring;
 
-import com.example.spring.ioc.Hello;
-import com.example.spring.ioc.Master;
-import com.example.spring.ioc.Student;
-import com.example.spring.ioc.User;
+import com.example.spring.aop.UserService;
+import com.example.spring.ioc.*;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -30,6 +29,16 @@ public class MyTest {
         Master master = context.getBean("master", Master.class);
         master.getCat().shout();
         master.getDog().shout();
+        System.out.println(master.getStr());
 
+        SpUser spUser = context.getBean("spUser", SpUser.class);
+        System.out.println(spUser.name);
+
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
+        SpDog spDog = applicationContext.getBean("spDog",SpDog.class);
+        System.out.println(spDog.name);
+
+        UserService userService = (UserService) context.getBean("userService");
+        userService.add();
     }
 }
