@@ -6,7 +6,7 @@ package com.example.spring.aop.staticproxy;
  * @Date : 2022-05-24 10:49
  * @Version : 1.0
  **/
-public class UserServiceProxy implements UserService{
+public class UserServiceProxy implements UserService {
 
     UserServiceImpl userServiceImpl;
 

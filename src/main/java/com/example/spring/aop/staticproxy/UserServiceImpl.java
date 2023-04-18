@@ -6,7 +6,7 @@ package com.example.spring.aop.staticproxy;
  * @Date : 2022-05-24 10:47
  * @Version : 1.0
  **/
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Override
     public void add() {

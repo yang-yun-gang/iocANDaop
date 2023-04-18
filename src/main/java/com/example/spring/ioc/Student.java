@@ -16,7 +16,7 @@ public class Student {
     private Address address;
     private String[] books;
     private List<String> hobbys;
-    private Map<String,String> card;
+    private Map<String, String> card;
     private Set<String> games;
     private String wife;
 

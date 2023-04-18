@@ -17,7 +17,7 @@ public class MyTest {
         //解析beans.xml文件 , 生成管理相应的Bean对象
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         //getBean : 参数即为spring配置文件中bean的id
-        Hello hello = context.getBean("llo",Hello.class);
+        Hello hello = context.getBean("llo", Hello.class);
         hello.show();
 
         Student student = context.getBean("student", Student.class);
@@ -35,7 +35,7 @@ public class MyTest {
         System.out.println(spUser.name);
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
-        SpDog spDog = applicationContext.getBean("spDog",SpDog.class);
+        SpDog spDog = applicationContext.getBean("spDog", SpDog.class);
         System.out.println(spDog.name);
 
         UserService userService = (UserService) context.getBean("userService");

@@ -17,7 +17,7 @@
     <bean id="hello" name="he llo" class="com.example.spring.ioc.Hello">
         <constructor-arg name="name" value="spring"/>
     </bean>
-    
+
     <!-- set注入 -->
     <bean id="address" class="com.example.spring.ioc.Address">
         <property name="address" value="sichuan"/>
@@ -50,7 +50,9 @@
                 <value>lol</value>
             </set>
         </property>
-        <property name="wife"><null/></property>
+        <property name="wife">
+            <null/>
+        </property>
     </bean>
 
     <!-- p命名注入 -->
